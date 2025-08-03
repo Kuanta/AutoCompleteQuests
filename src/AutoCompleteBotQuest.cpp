@@ -9,7 +9,7 @@ class AutoCompletePartyQuests : public PlayerScript
 public:
     AutoCompletePartyQuests() : PlayerScript("AutoCompletePartyQuests") {}
 
-    void OnQuestReward(Player *player, Quest const *quest) override
+    void OnPlayerCompleteQuest(Player *player, Quest const *quest) override
     {
         if (!player->GetGroup())
             return;
