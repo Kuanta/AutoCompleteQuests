@@ -1,7 +1,7 @@
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "Group.h"
-#include "Quest.h"
+#include "QuestDef.h"
 #include "PlayerBotMgr.h"
 
 class AutoCompleteBotQuest : public PlayerScript

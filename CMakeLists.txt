@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
 project("mod_autocomplete_bots_quest")
 
-add_definitions(-std=c++17)
+add_compile_options(-std=c++20)
 
 include_directories(${CMAKE_SOURCE_DIR}/src/server)
 
