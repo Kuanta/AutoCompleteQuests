@@ -1,5 +1,4 @@
-#include "ScriptMgr.h"
-#include "Player.h"
+#include "PlayerScript.h"
 #include "Group.h"
 #include "QuestDef.h"
 #include "WorldSession.h"
