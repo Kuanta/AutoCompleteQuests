@@ -10,3 +10,7 @@ file(GLOB_RECURSE sources src/*.cpp)
 add_library(${PROJECT_NAME} MODULE ${sources})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE game)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/modules/mod-playerbots
+)
