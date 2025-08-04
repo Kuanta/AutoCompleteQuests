@@ -47,7 +47,7 @@ public:
 
             if (player && player->GetSession())
             {
-                ChatHandler(targetPlayer->GetSession()).PSendSysMessage("AutoComplete : % s completed quest % u(copied from % s) ", member->GetName().c_str(), quest->GetQuestId(), player->GetName().c_str());
+                ChatHandler(player->GetSession()).PSendSysMessage("AutoComplete: %s adlı grup üyesi quest %u görevini tamamladı.", member->GetName().c_str(), quest->GetQuestId());
             }
         }
     }
