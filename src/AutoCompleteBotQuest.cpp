@@ -3,6 +3,7 @@
 #include "Group.h"
 #include "QuestDef.h"
 #include "WorldSession.h"
+#include "Log.h"
 
 class AutoCompletePartyQuests : public PlayerScript
 {
