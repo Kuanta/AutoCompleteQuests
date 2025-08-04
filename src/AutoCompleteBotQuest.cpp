@@ -3,7 +3,7 @@
 #include "Group.h"
 #include "QuestDef.h"
 #include "WorldSession.h"
-#include "Log.h"
+#include "Chat.h"
 
 class AutoCompletePartyQuests : public PlayerScript
 {
@@ -45,10 +45,10 @@ public:
             member->CompleteQuest(quest->GetQuestId());
             member->RewardQuest(quest, 0, nullptr);
 
-            TC_LOG_INFO("server", "AutoComplete: %s completed quest %u (copied from %s)",
-                        member->GetName().c_str(),
-                        quest->GetQuestId(),
-                        player->GetName().c_str());
+            if (player && player->GetSession())
+            {
+                ChatHandler(targetPlayer->GetSession()).PSendSysMessage("AutoComplete : % s completed quest % u(copied from % s) ", member->GetName().c_str(), quest->GetQuestId(), player->GetName().c_str());
+            }
         }
     }
 };
