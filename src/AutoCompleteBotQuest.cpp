@@ -22,28 +22,27 @@ public:
         for (GroupReference *itr = group->GetFirstMember(); itr != nullptr; itr = itr->next())
         {
             Player *member = itr->GetSource();
+
             if (!member || member == player)
                 continue;
 
-            // Eğer başka bir hesaba aitse, dokunma
-            if (member->GetSession()->GetAccountId() != masterAccountId)
+            if (!member->GetSession() || member->GetSession()->GetAccountId() != masterAccountId)
                 continue;
 
-            // Eğer quest'te ödül seçimi varsa, dokunma
             if (quest->GetRewChoiceItemsCount() > 1)
                 continue;
 
-            // Eğer quest alınmamışsa, aldır
+            if (!member->CanTakeQuest(quest, false))
+                continue;
+
             if (!member->GetQuestStatus(quest->GetQuestId()))
                 member->AddQuest(quest, nullptr);
 
-            // Zaten bitmişse geç
             if (member->GetQuestStatus(quest->GetQuestId()) == QUEST_STATUS_COMPLETE)
                 continue;
 
-            // Bitmemişse tamamlat
             member->CompleteQuest(quest->GetQuestId());
-            member->RewardQuest(quest, 0, nullptr);
+            member->RewardQuest(quest, 0, player); // burada player object ver, en güvenlisi
 
             if (player && player->GetSession())
             {
