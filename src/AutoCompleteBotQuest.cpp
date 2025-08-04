@@ -53,7 +53,7 @@ public:
     }
 };
 
-void Addmod_AutoCompleteQuestsScripts()
+void AddAutoCompleteQuestsScripts()
 {
     new AutoCompletePartyQuests();
 }
