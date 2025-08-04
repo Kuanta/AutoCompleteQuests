@@ -52,8 +52,3 @@ public:
         }
     }
 };
-
-void Addmod_autocomplete_partyquestsScripts()
-{
-    new AutoCompletePartyQuests();
-}
