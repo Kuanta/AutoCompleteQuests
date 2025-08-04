@@ -42,7 +42,7 @@ public:
 
             // Bitmemişse tamamlat
             member->CompleteQuest(quest->GetQuestId());
-            member->RewardQuest(quest, false);
+            member->RewardQuest(quest, 0, nullptr);
 
             TC_LOG_INFO("server", "AutoComplete: %s completed quest %u (copied from %s)",
                         member->GetName().c_str(),
